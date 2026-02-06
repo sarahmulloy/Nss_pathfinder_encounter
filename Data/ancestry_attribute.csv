@@ -1,0 +1,5 @@
+,Attribute,dwarf,elf,halfling,human,orc
+0,Hit Points,['10'],['6'],['6'],['8'],['10']
+1,Speed,['20 feet'],['30 feet'],['25 feet'],['25 feet'],['25 feet']
+2,Attribute Boosts,"['Constitution', 'Wisdom', 'Free']","['Dexterity', 'Intelligence', 'Free']","['Dexterity', 'Wisdom', 'Free']",['Two free ability boosts'],['Two free ability boosts']
+3,Attribute Flaw,['Charisma'],['Constitution'],['Strength'],,
