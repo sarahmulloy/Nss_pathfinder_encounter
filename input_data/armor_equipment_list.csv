@@ -1,0 +1,16 @@
+﻿Custom Armor (see Equipment Tab),,,,5,1,-3,-10ft,16,4,"*Plate*, *Noisy*",*Bulwark*
+Name,Category,Level,Price,AC Bonus,Dex Cap,Check Penalty,Speed Penalty,Strength,Bulk,Group,Armor Traits
+Unarmored,Unarmored,—,—,+0,,—,—,—,—,—,—
+Explorer's Clothing,Unarmored,—,1 sp,+0,+5,—,—,—,L,*Cloth*,*Comfort*
+Padded Armor,Light,—,2 sp,+1,+3,—,—,10,L,*Cloth*,*Comfort*
+Leather Armor,Light,—,2 gp,+1,+4,-1,—,10,1,*Leather*,—
+Studded Leather Armor,Light,—,3 gp,+2,+3,-1,—,12,1,*Leather*,—
+Chain Shirt,Light,—,5 gp,+2,+3,-1,—,12,1,*Chain*,"*Flexible*, *Noisy*"
+Hide Armor,Medium,—,2 gp,+3,+2,-2,-5 ft.,14,2,*Leather*,—
+Scale Mail,Medium,—,4 gp,+3,+2,-2,-5 ft.,14,2,*Composite*,—
+Chain Mail,Medium,—,6 gp,+4,+1,-2,-5 ft.,16,2,*Chain*,"*Flexible*, *Noisy*"
+Breastplate,Medium,—,8 gp,+4,+1,-2,-5 ft.,16,2,*Plate*,—
+Splint Mail,Heavy,1,13 gp,+5,+1,-3,-10 ft.,16,3,*Composite*,—
+Half Plate,Heavy,1,18 gp,+5,+1,-3,-10 ft.,16,3,*Plate*,—
+Full Plate,Heavy,2,30 gp,+6,+0,-3,-10 ft.,18,4,*Plate*,*Bulwark*
+Hellknight Plate,Heavy,2,35 gp,+6,+0,-3,-10 ft.,18,4,*Plate*,"*Bulwark*, *Uncommon*"

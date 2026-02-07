@@ -1,0 +1,9 @@
+,Attribute,dwarf,elf,halfling,human,orc
+0,Hit Points,10,6,6,8,10
+1,Speed,20 feet,30 feet,25 feet,25 feet,25 feet
+2,Strength,0,0,-2,0,0
+3,Dexterity,0,+2,+2,0,0
+4,Constitution,+2,-2,0,0,0
+5,Intellegence,0,0,0,0,0
+6,Charisma,-2,0,0,0,0
+7,Two free ability boosts,0,0,0,+2,+2

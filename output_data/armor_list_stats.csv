@@ -1,0 +1,14 @@
+,Name,Category,Level,AC Bonus,Dex Cap,Check Penalty,Speed Penalty,Strength,Bulk,Armor Traits
+2,Explorer's Clothing,Unarmored,0,0,5,0,0,0,L,Comfort
+3,Padded Armor,Light,0,1,3,0,0,10,L,Comfort
+4,Leather Armor,Light,0,1,4,1,0,10,1,none
+5,Studded Leather Armor,Light,0,2,3,1,0,12,1,none
+6,Chain Shirt,Light,0,2,3,1,0,12,1,"Flexible, Noisy"
+7,Hide Armor,Medium,0,3,2,2,5,14,2,none
+8,Scale Mail,Medium,0,3,2,2,5,14,2,none
+9,Chain Mail,Medium,0,4,1,2,5,16,2,"Flexible, Noisy"
+10,Breastplate,Medium,0,4,1,2,5,16,2,none
+11,Splint Mail,Heavy,1,5,1,3,10,16,3,none
+12,Half Plate,Heavy,1,5,1,3,10,16,3,none
+13,Full Plate,Heavy,2,6,0,3,10,18,4,Bulwark
+14,Hellknight Plate,Heavy,2,6,0,3,10,18,4,"Bulwark, Uncommon"

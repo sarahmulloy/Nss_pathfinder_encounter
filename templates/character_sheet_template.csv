@@ -1,0 +1,43 @@
+build metrics,formula,ability_modifier,proficiency,base_value,ancestry_boost,class_boost,equipment_boost,feat_boost,level 1,level 2,level 3,level 4,level 5,level 6,level 7,level 8,level 9,level 10
+strength,10+mod,str,none,10,strength,strength,strength,strength,strength,strength,strength,strength,strength,strength,strength,strength,strength,strength
+dexterity,10+mod,dex,none,10,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity
+constitution,10+mod,con,none,10,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution,constitution
+intelligence,10+mod,int,none,10,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence
+wisdom,10+mod,wis,none,10,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom
+charisma,10+mod,char,none,10,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma,charisma
+armor class,10+dex+prof+item,dex,untrained,10,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class,armor class
+fortitude,10+con+prof+item,dex,untrained,10,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude
+reflex,dex+prof+item,con,untrained,0,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex,reflex
+will,wis+prof+item,dex,untrained,0,will,will,will,will,will,will,will,will,will,will,will,will,will,will
+hit points,class + con,wis,none,0,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points,hit points
+perception,wis+prof,con,untrained,0,perception,perception,perception,perception,perception,perception,perception,perception,perception,perception,perception,perception,perception,perception
+speed,ancestry,wis,none,0,speed,speed,speed,speed,speed,speed,speed,speed,speed,speed,speed,speed,speed,speed
+class DC,10+mod+prof,ancestry,untrained,0,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC,class DC
+unarmored,prof,class,untrained,0,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored
+light armor,prof,none,untrained,0,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor,light armor
+medium armor,prof,none,untrained,0,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor,medium armor
+heavy armor,prof,none,untrained,0,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor,heavy armor
+unarmed,prof,none,untrained,0,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed
+simple weapons,prof,none,untrained,0,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons,simple weapons
+martial weapons,prof,none,untrained,0,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons,martial weapons
+advanced weapons,prof,none,untrained,0,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons,advanced weapons
+other weapons,prof,none,untrained,0,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons,other weapons
+Acrobatics,dex+prof,none,untrained,0,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics,Acrobatics
+Arcana,int+prof,dex,untrained,0,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana,Arcana
+Athletics,str+prof,int,untrained,0,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics,Athletics
+Crafting,int+prof,str,untrained,0,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting,Crafting
+Deception,cha+prof,int,untrained,0,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception,Deception
+Diplomacy,cha+prof,cha,untrained,0,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy,Diplomacy
+Intimidation,cha+prof,cha,untrained,0,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation,Intimidation
+Medicine,wis+prof,cha,untrained,0,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine,Medicine
+Nature,wis+prof,wis,untrained,0,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature,Nature
+Religion,wis+prof,wis,untrained,0,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion,Religion
+Occultism,int+prof,wis,untrained,0,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism,Occultism
+Performance,cha+prof,int,untrained,0,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance
+Society,int+prof,cha,untrained,0,Society,Society,Society,Society,Society,Society,Society,Society,Society,Society,Society,Society,Society,Society
+Stealth,dex+prof,int,untrained,0,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth,Stealth
+Survival,wis+prof,dex,untrained,0,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival,Survival
+Thievery,dex+prof,wis,untrained,0,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery,Thievery
+magical tradiiton,magical tradiiton,dex,none,0,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton,magical tradiiton
+spell attack,mod+prof,class,untrained,0,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack
+spell dc,10+mod+prof,class,untrained,0,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc

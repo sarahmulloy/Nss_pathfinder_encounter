@@ -1,0 +1,107 @@
+,Name,Category,Level,Price,Damage,Bulk,Hands,Group,Weapon Traits,Damage_type
+0,Fist,Unarmed,0,0,1d4,0,1,Brawling,"Agile, Finesse, Nonlethal, Unarmed",B
+1,Clan Dagger,Simple,0,2 gp,1d4,L,1,Knife,"Agile, Dwarf, Parry, Uncommon, Versatile B",P
+2,Club,Simple,0,0,1d6,1,1,Club,Thrown 10 ft.,B
+3,Dagger,Simple,0,2 sp,1d4,L,1,Knife,"Agile, Finesse, Thrown 10 ft., Versatile S",P
+4,Gauntlet,Simple,0,2 sp,1d4,L,1,Brawling,"Agile, Free-Hand",B
+5,Juggling Club,Simple,0,1 sp,1d4,L,1,Club,"Agile, Nonlethal, Thrown 20 ft., Uncommon",B
+6,Katar,Simple,0,3 sp,1d4,L,1,Knife,"Agile, Deadly d6, Monk, Uncommon",P
+7,Light Mace,Simple,0,4 sp,1d4,L,1,Club,"Agile, Finesse, Shove",B
+8,Longspear,Simple,0,5 sp,1d8,2,2,Spear,Reach,P
+9,Mace,Simple,0,1 gp,1d6,1,1,Club,Shove,B
+10,Morningstar,Simple,0,1 gp,1d6,1,1,Club,Versatile P,B
+11,Nightstick,Simple,0,1 gp,1d4,L,1,Club,"Agile, Finesse, Nonlethal, Parry, Uncommon",B
+12,Poi,Simple,0,2 sp,1d4,L,1,Flail,"Agile, Backswing, Finesse, Nonlethal, Uncommon",B
+13,Shears,Simple,0,5 sp,1d4,L,1,Knife,"Deadly d8, Finesse, Uncommon, Versatile P",S
+14,Sickle,Simple,0,2 sp,1d4,L,1,Knife,"Agile, Finesse, Trip",S
+15,Spear,Simple,0,1 sp,1d6,1,1,Spear,Thrown 20 ft.,P
+16,Spiked Gauntlet,Simple,0,3 sp,1d4,L,1,Brawling,"Agile, Free-Hand",P
+17,Staff,Simple,0,0,1d4,1,1,Club,Two-Hand d8,B
+18,Stiletto Pen,Simple,1,8 gp,1d4,L,1,Dart,"Agile, Concealable, Finesse, Thrown 10 ft., Uncommon",P
+19,Throwing Knife,Simple,0,3 sp,1d4,L,1,Knife,"Agile, Finesse, Thrown 20 ft., Twin, Uncommon",P
+20,Bastard Sword,Martial,0,4 gp,1d8,1,1,Sword,Two-Hand d12,S
+21,Battle Axe,Martial,0,1 gp,1d8,1,1,Axe,Sweep,S
+22,Bladed Scarf,Martial,0,3 gp,1d8,1,2,Flail,"Disarm, Reach, Sweep, Trip, Uncommon",S
+23,Bo Staff,Martial,0,2 sp,1d8,2,2,Club,"Monk, Parry, Reach, Trip",B
+24,Boarding Pike,Martial,1,8 sp,1d10,2,2,Polearm,"Reach, Shove, Uncommon",P
+25,Claw Blade,Martial,0,2 gp,1d4,L,1,Knife,"Agile, Catfolk, Deadly d8, Disarm, Finesse, Uncommon, Versatile 
+P",S
+26,Combat Grapnel,Martial,1,9 sp,1d6,1,2,Flail,"Finesse, Grapple, Tethered, Thrown 20 ft., Uncommon",P
+27,Dogslicer,Martial,0,1 sp,1d6,L,1,Sword,"Agile, Backstabber, Finesse, Goblin, Uncommon",S
+28,Elven Curve Blade,Martial,0,4 gp,1d8,2,2,Sword,"Elf, Finesse, Forceful, Uncommon",S
+29,Exquisite Sword Cane,Martial,4,90 gp,1d6,1,1,Sword,"Agile, Concealable, Finesse, Parry, Twin (Sheath)",P
+30,Exquisite Sword Cane Sheath,Martial,0,0,1d4,L,1,Club,"Agile, Finesse, Parry, Twin (Sword)",B
+31,Falchion,Martial,0,3 gp,1d10,2,2,Sword,"Forceful, Sweep",S
+32,Fauchard,Martial,0,"1 gp, 4 sp",1d8,2,2,Polearm,"Deadly d8, Reach 10 ft., Sweep, Trip",S
+33,Fighting Fan,Martial,0,"1 gp, 1 sp",1d4,L,1,Knife,"Agile, Backstabber, Deadly d6, Finesse, Monk, Uncommon",S
+34,Filcher's Fork,Martial,0,1 gp,1d4,L,1,Spear,"Agile, Backstabber, Deadly d6, Finesse, Halfling, Thrown 20 ft., 
+Uncommon",P
+35,Flail,Martial,0,1 gp,1d6,1,1,Flail,"Disarm, Sweep, Trip",B
+36,Gaff,Martial,0,1 gp,1d6,1,1,Club,"Trip, versatile P",B
+37,Glaive,Martial,0,1 gp,1d8,2,2,Polearm,"Deadly d8, Forceful, Reach",S
+38,Gnome Hooked Hammer,Martial,0,2 gp,1d6,1,1,Hammer,"Gnome, Trip, Two-Hand d10, Uncommon, Versatile P",B
+39,Greataxe,Martial,0,2 gp,1d12,2,2,Axe,Sweep,S
+40,Greatclub,Martial,0,1 gp,1d10,2,2,Club,"Backswing, Shove",B
+41,Greatpick,Martial,0,2 gp,1d10,2,2,Pick,Fatal d12,P
+42,Greatsword,Martial,0,2 gp,1d12,2,2,Sword,Versatile P,S
+43,Guisarme,Martial,0,2 gp,1d10,2,2,Polearm,"Reach, Trip",S
+44,Halberd,Martial,0,2 gp,1d10,2,2,Polearm,"Reach, Versatile S",P
+45,Hatchet,Martial,0,4 sp,1d6,L,1,Axe,"Agile, Sweep, Thrown  10 ft.",S
+46,Horsechopper,Martial,0,9 sp,1d8,2,2,Polearm,"Goblin, Reach, Trip, Uncommon, Versatile P",S
+47,Kama,Martial,0,1 gp,1d6,L,1,Knife,"Agile, Monk, Trip, Uncommon",S
+48,Katana,Martial,0,2 gp,1d6,1,1,Sword,"Deadly d8, Two-Hand d10, Uncommon, Versatile P",S
+49,Khakkara,Martial,0,2 gp,1d6,1,1,Club,"Shove, Two-Hand d10, Uncommon, Versatile P",B
+50,Khopesh,Martial,0,2 gp,1d8,1,1,Sword,"Trip, Uncommon",S
+51,Kukri,Martial,0,6 sp,1d6,L,1,Knife,"Agile, Finesse, Trip, Uncommon",S
+52,Lance,Martial,0,1 gp,1d8,2,2,Spear,"Deadly d8, Jousting d6, Reach",P
+53,Light Hammer,Martial,0,3 sp,1d6,L,1,Hammer,"Agile, Thrown 20 ft.",B
+54,Light Pick,Martial,0,4 sp,1d4,L,1,Pick,"Agile, Fatal d8",P
+55,Longsword,Martial,0,1 gp,1d8,1,1,Sword,Versatile P,S
+56,Machete,Martial,0,7 sp,1d6,L,1,Sword,"Deadly d8, Sweep",S
+57,Main-gauche,Martial,0,5 sp,1d4,L,1,Knife,"Agile, Disarm, Finesse, Parry, Versatile S",P
+58,Mambele,Martial,0,6 sp,1d6,1,1,Axe,"Deadly d8, Disarm, Thrown 20 ft., Uncommon",S
+59,Maul,Martial,0,3 gp,1d12,2,2,Hammer,Shove,B
+60,Meteor Hammer,Martial,0,3 gp,1d8,2,2,Flail,"Backswing, Disarm, Reach, Trip",B
+61,Monkey's Fist,Martial,0,1 sp,1d6,0,1,Flail,"Finesse, Monk, Nonlethal",B
+62,Naginata,Martial,0,3 gp,1d8,2,2,Polearm,"Deadly d8, Reach, Uncommon, Versatile P",S
+63,Nine-Ring Sword,Martial,0,9 sp,1d8,1,1,Sword,"Disarm, Uncommon",S
+64,Nunchaku,Martial,0,2 sp,1d6,L,1,Club,"Backswing, Disarm, Finesse, Monk, Uncommon",B
+65,Ogre Hook,Martial,0,1 gp,1d10,2,2,Pick,"Deadly 1d10, Trip, Uncommon",P
+66,Orc Knuckle Dagger,Martial,0,7 sp,1d6,L,1,Knife,"Agile, Disarm, Orc, Uncommon",P
+67,Pick,Martial,0,7 sp,1d6,1,1,Pick,Fatal d10,P
+68,Polytool,Martial,1,10 gp,1d6,1,1,Sword,"Agile, Modular B, P, or S, Uncommon",modular
+69,Ranseur,Martial,0,2 gp,1d10,2,2,Polearm,"Disarm, Reach",P
+70,Rapier,Martial,0,2 gp,1d6,1,1,Sword,"Deadly d8, Disarm, Finesse",P
+71,Sai,Martial,0,6 sp,1d4,L,1,Knife,"Agile, Disarm, Finesse, Monk, Uncommon, Versatile B",P
+72,Sap,Martial,0,1 sp,1d6,L,1,Club,"Agile, Nonlethal",B
+73,Scimitar,Martial,0,1 gp,1d6,1,1,Sword,"Forceful, Sweep",S
+74,Scorpion Whip,Martial,0,5 sp,1d4,L,1,Flail,"Disarm, Finesse, Reach, Trip, Uncommon",S
+75,Scourge,Martial,0,1 sp,1d4,1,1,Flail,"Agile, Disarm, Finesse, Nonlethal, Sweep",S
+76,Scythe,Martial,0,2 gp,1d10,2,2,Polearm,"Deadly d10, Trip",S
+77,Shield Bash,Martial,0,0,1d4,0,1,Shield,—,B
+78,Shield Boss,Martial,0,5 sp,1d6,0,1,Shield,Attached to Shield,B
+79,Shield Spikes,Martial,0,5 sp,1d6,0,1,Shield,Attached to Shield,P
+80,Shortsword,Martial,0,9 sp,1d6,L,1,Sword,"Agile, Finesse, Versatile S",P
+81,Spiked Chain,Martial,0,3 gp,1d8,1,2,Flail,"Disarm, Finesse, Trip, Uncommon",S
+82,Starknife,Martial,0,2 gp,1d4,L,1,Knife,"Agile, Deadly d6, Finesse, Thrown 20 ft., Versatile S",P
+83,Sword Cane,Martial,0,5 gp,1d6,1,1,Sword,"Agile, Concealable, Finesse",P
+84,Tekko-kagi,Martial,0,2 sp,1d4,L,1,Brawling,"Agile, Disarm, Finesse, Parry, Trip, Uncommon",S
+85,Temple Sword,Martial,0,2 gp,1d8,1,1,Sword,"Monk, Trip, Uncommon",S
+86,Tengu Gale Blade,Martial,0,4 gp,1d6,L,1,Sword,"Agile, Disarm, Finesse, Tengu, Uncommon",S
+87,Trident,Martial,0,1 gp,1d8,1,1,Spear,Thrown 20 ft.,P
+88,Urumi,Martial,0,2 gp,1d6,2,1,Flail,"Deadly d10, Sweep, Uncommon",S
+89,Wakizashi,Martial,0,1 gp,1d4,L,1,Sword,"Agile, Deadly d8, Finesse, Uncommon, Versatile P",S
+90,War Flail,Martial,0,2 gp,1d10,2,2,Flail,"Disarm, Sweep, Trip",B
+91,War Razor,Martial,0,3 sp,1d4,L,1,Knife,"Agile, Backstabber, Deadly d8, Finesse",S
+92,Warhammer,Martial,0,1 gp,1d8,1,1,Hammer,Shove,B
+93,Whip,Martial,0,1 sp,1d4,1,1,Flail,"Disarm, Finesse, Nonlethal, Reach, Trip",S
+94,Aklys,Advanced,0,5 gp,1d6,1,1,Club,"Ranged Trip, Tethered, Thrown 20 feet, Trip, Uncommon",B
+95,Aldori Dueling Sword,Advanced,1,20 gp,1d8,1,1,Sword,"Finesse, Uncommon, Versatile P",S
+96,Bladed Diabolo,Advanced,0,2 gp,1d4,L,2,Flail,"Backswing, Disarm, Finesse, Thrown 40 ft., Trip, Uncommon",S
+97,Bladed Hoop,Advanced,0,"2 gp, 5 sp",1d6,1,0+,Knife,"Finesse, Sweep, Two-Hand d8, Uncommon",S
+98,Dwarven War Axe,Advanced,0,3 gp,1d8,2,1,Axe,"Dwarf, Sweep, Two-Hand d12, Uncommon",S
+99,Fire Poi,Advanced,0,5 gp,1d4,L,1,Flail,"Agile, Backswing, Finesse, Twin, Uncommon",F
+100,Gnome Flickmace,Advanced,0,3 gp,1d8,2,1,Flail,"Gnome, Reach, Uncommon",B
+101,Orc Necksplitter,Advanced,0,2 gp,1d8,1,1,Axe,"Forceful, Orc, Sweep, Uncommon",S
+102,Rhoka Sword,Advanced,0,4 gp,1d8,2,1,Sword,"Deadly d8, Two-Hand 1d10, Uncommon",S
+103,Sawtooth Saber,Advanced,0,5 gp,1d6,L,1,Sword,"Agile, Finesse, Twin, Uncommon",S

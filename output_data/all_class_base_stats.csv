@@ -1,0 +1,13 @@
+,Class,Primary Ability,Hit Points per Level,Perception,Fortitude,Reflex,Will,Skills,Defenses,Attacks,Spells,Class/Spell DC
+0,Alchemist,['Intelligence'],8,Trained,Expert,Expert,Trained,"['Crafting', '+3 of Choice']","Light, Unarmored","Simple, Unarmed, Alchemical Bombs",--,Trained
+1,Barbarian,['Strength'],12,Expert,Expert,Trained,Expert,"['Athletics', '+3 of Choice']","Light, Medium, Unarmored","Simple, Martial, Unarmed",--,Trained
+2,Bard,['Charisma'],8,Expert,Trained,Trained,Expert,"['Occultism and Performance', '+ 4 of Choice']","Light, Unarmored","Simple, Unarmed, Longsword, Rapier, Sap, Shortbow, Shortsword, Whip",Occult,Trained
+3,Champion,"['Strength ', ' Dexterity']",10,Trained,Expert,Trained,Expert,"[""Religion and 1 of your Deity's"", '+2 of Choice']","All, Unarmored","Simple, Martial, Unarmed",Divine,Trained
+4,Cleric,['Wisdom'],8,Trained,Trained,Trained,Expert,"[""Religion and 1 of your Deity's"", '+2 of Choice']","Unarmored, Armor noted by Doctrine","Simple, Deity's Favored Weapon, Unarmed",Divine,Trained
+5,Druid,['Wisdom'],8,Trained,Trained,Trained,Expert,"['Nature and 1 from your Order', '+2 of Choice']","Light, Medium, Unarmored","Simple, Unarmed",Primal,Trained
+6,Fighter,"['Strength ', ' Dexterity']",10,Expert,Expert,Expert,Trained,"['Acrobatics OR Athletics', '+3 of Choice']","All, Unarmored","Advanced; EXPERT: Simple, Martial, Unarmed",--,Trained
+7,Monk,"['Strength ', ' Dexterity']",10,Trained,Expert,Expert,Expert,['4 of Choice'],EXPERT: Unarmored,"Simple, Unarmed",--,Trained
+8,Ranger,"['Strength ', ' Dexterity']",10,Expert,Expert,Expert,Trained,"['Nature and Survival', '+4 of Choice']","Light, Medium, Unarmored","Simple, Martial, Unarmed",--,Trained
+9,Rogue,"['Dexterity ', ' Other']",8,Expert,Trained,Expert,Expert,"['Stealth and 1 from your Racket', '+7 of Choice']","Light, Unarmored","Simple, Unarmed, Rapier, Sap, Shortbow, Shortsword",--,Trained
+10,Sorcerer,['Charisma'],6,Trained,Trained,Trained,Expert,"['Bloodline-based Skills', '+2 of Choice']",Unarmored,"Simple, Unarmed",Bloodline-based,Trained
+11,Wizard,['Intelligence'],6,Trained,Trained,Trained,Expert,"['Arcana', '+2 of Choice']",Unarmored,"Club, Crossbow, Dagger, Heavy Crossbow, Staff, Unarmed",Arcane,Trained
