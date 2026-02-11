@@ -4,6 +4,7 @@
 2,Strength,0,0,-2,0,0
 3,Dexterity,0,+2,+2,0,0
 4,Constitution,+2,-2,0,0,0
-5,Intellegence,0,0,0,0,0
-6,Charisma,-2,0,0,0,0
-7,Two free ability boosts,0,0,0,+2,+2
+5,Intelligence,0,+2,0,0,0
+6,Wisdom,+2,0,+2,0,0
+7,Charisma,-2,0,0,0,0
+8,Two free ability boosts,0,0,0,+2,+2
