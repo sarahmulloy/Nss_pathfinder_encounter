@@ -1,26 +1,20 @@
-build metrics,formula,ability_modifier,proficiency,base_value,ancestry_boost,class_boost,equipment_boost,bcakground_boost,feat_boost,free_boost,level 1
-strength,10+mod,str,none,10,strength,strength,strength,strength,strength,strength,strength
-dexterity,10+mod,dex,none,10,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity,dexterity
-constitution,10+mod,con,none,10,constitution,constitution,constitution,constitution,constitution,constitution,constitution
-intelligence,10+mod,int,none,10,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence,intelligence
-wisdom,10+mod,wis,none,10,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom,wisdom
-charisma,10+mod,char,none,10,charisma,charisma,charisma,charisma,charisma,charisma,charisma
-armor class,10+dex+prof+item,dex,untrained,10,armor class,armor class,armor class,armor class,armor class,armor class,armor class
-fortitude,10+con+prof+item,con,untrained,10,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude,fortitude
-reflex,dex+prof+item,dex,untrained,0,reflex,reflex,reflex,reflex,reflex,reflex,reflex
-will,wis+prof+item,wis,untrained,0,will,will,will,will,will,will,will
-hit points,class + ancestry + con,con,none,0,hit points,hit points,hit points,hit points,hit points,hit points,hit points
-perception,wis+prof,wis,untrained,0,perception,perception,perception,perception,perception,perception,perception
-speed,ancestry,ancestry,none,0,speed,speed,speed,speed,speed,speed,speed
-unarmored,prof,none,untrained,0,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored,unarmored
-light,prof,none,untrained,0,light,light,light,light,light,light,light
-medium,prof,none,untrained,0,medium,medium,medium,medium,medium,medium,medium
-heavy,prof,none,untrained,0,heavy,heavy,heavy,heavy,heavy,heavy,heavy
-unarmed,prof,none,untrained,0,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed,unarmed
-simple,prof,none,untrained,0,simple,simple,simple,simple,simple,simple,simple
-martial,prof,none,untrained,0,martial,martial,martial,martial,martial,martial,martial
-advanced,prof,none,untrained,0,advanced,advanced,advanced,advanced,advanced,advanced,advanced
-other,prof,none,untrained,0,other,other,other,other,other,other,other
-magical tradition,class,class,none,0,magical tradition,magical tradition,magical tradition,magical tradition,magical tradition,magical tradition,magical tradition
-spell attack,mod+prof,class,untrained,0,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack,spell attack
-spell dc,10+mod+prof,class,untrained,0,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc,spell dc
+build metrics,formula,ability_modifier,base_value,ancestry_boost,class_boost,equipment_boost
+hit points,class + ancestry + level + con,con,0,hit points,hit points,hit points
+speed,ancestry,none,0,speed,speed,speed
+perception,wis+prof,wis,0,perception,perception,perception
+fortitude,con+prof,con,0,fortitude,fortitude,fortitude
+reflex,dex+prof,dex,0,reflex,reflex,reflex
+will,wis+prof,wis,0,will,will,will
+armor class,10+dex+prof,dex,10,armor class,armor class,armor class
+unarmored,prof,prof,0,unarmored,unarmored,unarmored
+light,prof,prof,0,light,light,light
+medium,prof,prof,0,medium,medium,medium
+heavy,prof,prof,0,heavy,heavy,heavy
+unarmed,prof,prof,0,unarmed,unarmed,unarmed
+simple,prof,prof,0,simple,simple,simple
+martial,prof,prof,0,martial,martial,martial
+advanced,prof,prof,0,advanced,advanced,advanced
+other,prof,prof,0,other,other,other
+magical tradition,class,class,0,magical tradition,magical tradition,magical tradition
+spell attack,mod+prof,spell ability,0,spell attack,spell attack,spell attack
+spell dc,10+mod+prof,spell ability,10,spell dc,spell dc,spell dc
