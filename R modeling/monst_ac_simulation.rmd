@@ -1,0 +1,109 @@
+R modeling to prepare code for R shiny app exploring monster encounter information with pathfinder 2e 
+```{r}
+library(tidyverse)
+```
+
+```{r}
+sim_results <- read.csv('../output_data/simualtion_results_ac10-30.csv')
+sim_results|> head(3)
+```
+Identify rows or columns with blank or inaccurately copied filter columns and drop them (for now)
+```{r}
+# Replace all empty strings with NA
+sim_results <- sim_results  |> mutate(across(c(ancestry, class_build), na_if, ""))
+
+# sim_results |> drop_na(class_build) |> drop_na(ancestry)
+
+sim_results |> distinct(class_build)
+```
+```{r}
+all_class_options <- sim_results|> distinct(class_build) |> pull()
+all_class_options
+
+sim_results |> filter(class_build == all_class_options[1])
+```
+
+
+```{r}
+# #make a visual where each class shows total damage 
+# class_list <- sim_results |> c(distinct(class_build))
+# 
+# class_list |> pull(class_build)
+
+### list all class options for chosing 
+all_class_options <- sim_results|> distinct(class_build) |> pull()
+
+class_choice = all_class_options[4]
+
+#graph results from only one class ### figure out how to automate this process later 
+class_select_sim <- sim_results |> filter(class_build == class_choice)
+
+#visualize the total_dmg output for each class split by ancestry 
+class_select_sim |> ggplot(aes(x=target_ac, y=total_dmg, color=ancestry)) +  
+  geom_smooth(aes(group=ancestry), method='lm', se=TRUE) +
+  labs(title=glue('{class_choice} damage output by level and target ac'), 
+       x='target ac', 
+       y= 'total damage over 5 round')
+
+```
+
+troublehsoot ancestry plot color issue -> make it a factor variable?
+```{r}
+class_select_sim$ancestry <- factor(class_select_sim$ancestry)
+class_select_sim
+```
+
+Open monster stat and add the monster HP distribution to the graph 
+```{r}
+
+monster_data<- read.csv('../output_data/bestiary_stats.csv')
+monster_data|> head(3)
+
+```
+
+Visualize the distribution of total damage needed for specific hitpoint levels
+```{r}
+#filter so monster data only goes to the max AC level of simulation dataset 
+max_target_ac <- sim_results |> distinct(target_ac) |> max()
+  
+monster_data_maxac <- monster_data |> filter(AC <= max_target_ac)
+
+monster_data_maxac|> head()
+```
+
+
+```{r}
+monster_data_maxac |> 
+  #create graph of HP vs AC for each monster
+  ggplot(aes(x=AC, y=HP, color=Level, marker='x'))+ 
+  #make scatter plot
+  geom_point() + 
+  #adjust color map for scale 
+  scale_fill_brewer(palette = "RdYlBu")
+```
+Create a visual that includes the monster HP information with simulation data 
+
+```{r}
+#visualize the total_dmg output for each class split by ancestry 
+#visualize the total_dmg output for each class split by ancestry 
+class_select_sim |> ggplot(aes(x=target_ac, y=total_dmg)) +  
+  geom_smooth(aes(group=ancestry, color=ancestry), method='lm', se=TRUE) +
+  geom_point(data = monster_data_maxac, aes(x=AC, y=HP, shape=Level, size= Level, alpha=0.4)) + scale_shape_binned() +
+    labs(title=glue('{class_choice} damage output by level and target ac'), 
+       x='target ac', 
+       y= 'total damage over 5 rounds')
+       
+```
+
+Categorize monsters by whether they are BELOW class "moderate" curve or above 
+
+```{r}
+
+class_select_sim |> head()
+```
+Clean up monster spreadsheet
+```{r}
+monster_data_maxac <- monster_data_maxac |> select(-X)
+monster_data_maxac |> head()
+```
+
