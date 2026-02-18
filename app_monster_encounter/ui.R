@@ -2,87 +2,144 @@
 #TAB OPTIONS: character build, monster encounter (single), monster encounter (multiple)
 
 #####monster encounter (single):
-#Drop down select: class, ancestry, and level 
-### class drop-down = input$class_variable
-### level drop-down = input$level_variable
-### toggle option -> split by ancestry, split by level 
-#style option 2: slider for level, etc 
 
-#visual: line trend of total damage vs ac for selected build
-#visual: overlay monster HP/AC scatterpoints over the character damage level 
-#color code monster marks based on difficulty: easy = under curve, moderate = at curve or within CI, hard= above curve  
+#### Single tab with interactive plots
 
-#slider option: monster selection for level, features, and difficulty 
-#visual: shows graph of the filtered dataset depending on input features 
-
-####
-
-
-#### class example
-# Define UI for application that draws a histogram
 fluidPage(
-
-  # Application title
-  titlePanel("Monster encounter generator by character build"),
-
+  titlePanel("Generate monster encounter for party"),
   # Sidebar with dropdown menus to select build class and level
+  
+  ###[ SIDEBAR LAYOUT] ###
   sidebarLayout(
     sidebarPanel(
-      selectInput("class_variable",
-                  "Filter by character class:",
-                  choices= c(sim_results|> 
-                               distinct(class_build) |> 
-                               pull() |> 
+      ## Create a FLuid Row for EACH class option in a 4-class party 
+      
+      ### Character choice 1
+      fluidRow(
+        column(12,
+               selectInput(
+                 "class_variable_1",
+                 "class 1:",
+                 #Automatically fill option based on unique class column variables
+                 choices = c(sim_results |>
+                               distinct(build_name) |>
+                               pull() |>
                                sort())
-                  ), 
-      selectInput("challenge_variable",
-                  "Select encounter challenge level:",
-                  choices= c('All', 
-                             'easy', 
-                             'moderate', 
-                             'hard', 
-                             'impossible')
-                  ),
-      ),#sidebar panel close
+               )) #, #column 1,
+        # column(6,  
+        #        selectInput(
+        #          "anc_variable_1",
+        #          "ancestry 1",
+        #          #Automatically fill option based on unique class column variables
+        #          choices = c(sim_results |>
+        #                        distinct(ancestry) |>
+        #                        pull() |>
+        #                        sort())
+        #)) #column 2
+      ), #char1 row
+      
+      ### character choice 2
+      fluidRow(
+        column(12, 
+               selectInput(
+                 "class_variable_2",
+                 "Class 2:",
+                 #Automatically fill option based on unique class column variables
+                 choices = c(sim_results |>
+                               distinct(build_name) |>
+                               pull() |>
+                               sort())
+               )) #, #column 1,
+        # column(6,  
+        #        selectInput(
+        #          "anc_variable_2",
+        #          "ancestry 2",
+        #          #Automatically fill option based on unique class column variables
+        #          choices = c(sim_results |>
+        #                        distinct(ancestry) |>
+        #                        pull() |>
+        #                        sort())
+               #)) #column 2
+      ), #char2 row
+      
+      ### character choice 3
+      fluidRow(
+        column(12, 
+               selectInput(
+                 "class_variable_3",
+                 "Class 3:",
+                 #Automatically fill option based on unique class column variables
+                 choices = c(sim_results |>
+                               distinct(build_name) |>
+                               pull() |>
+                               sort())
+               )) #, #column 1,
+        # column(6,  
+        #        selectInput(
+        #          "anc_variable_3",
+        #          "ancestry 3",
+        #          #Automatically fill option based on unique class column variables
+        #          choices = c(sim_results |>
+        #                        distinct(ancestry) |>
+        #                        pull() |>
+        #                        sort())
+               #)) #column 2
+      ), #char3 row
+      
+      ##character choice 4
+      fluidRow(
+        column(12, 
+               selectInput(
+                 "class_variable_4",
+                 "Class 4:",
+                 #Automatically fill option based on unique class column variables
+                 choices = c(sim_results |>
+                               distinct(build_name) |>
+                               pull() |>
+                               sort())
+               )) #, #column 1,
+        # column(6,  
+        #        selectInput(
+        #          "anc_variable_4",
+        #          "ancestry 4",
+        #          #Automatically fill option based on unique class column variables
+        #          choices = c(sim_results |>
+        #                        distinct(ancestry) |>
+        #                        pull() |>
+        #                        sort())
+               #)) #column 2
+      ), #char4 row
+      
+      ## slide panel based on CHARACTER level
+      sliderInput(
+        "chlevel_variable",
+        "Party level:",
+        min = 1,
+        max = 5,
+        value = 1
+      ), #close slider widget
+    ), #close side bar panel
+    #### [ CLOSE SIDE PANEL]#####
     
-
+    ###[ MAIN PAGE LAYOUT] ###
     mainPanel(
+      ### main section -> fill with plots
       fluidRow(
         column(
-          width=12,
-          plotOutput("distPlot"), 
-          # #move the bin slider input code to be in the same column space as the plot
-          sliderInput("chlevel_variable",
-                      "character level:",
-                      min = 1,
-                      max = 5,
-                      value = 1), 
-          sliderInput("monlevel_variable",
-                      "monster level:",
-                      min = 1,
-                      max = 10,
-                      value = 1)
-        )
-        # column(
-        #   width = 8,
-        #   plotOutput("yearboxPlot")
-        # )
-      ),#fluidrow
+          width = 12,
+          
+          ##[ PLOT: scatter graph]
+          plotlyOutput(
+            "chmonPlot"
+          ),
+        ),
+        ### [ display monster info from click]
+        verbatimTextOutput("monsterinfo")
+      ),
+      #fluidrow
       
-      fluidRow(
-        dataTableOutput("selectedTable")
+      #Display full monster table information
+      fluidRow(dataTableOutput("selectedTable")
       ) #fluidrow
     ) #mainpanel
   ))#fluidpage
-
-
-### instructions on how to get an interactive plot on Shiny
-# ui <- basicPage(
-#   plotOutput("plot1",
-#              click = "plot_click",
-#              dblclick = "plot_dblclick",
-#              hover = "plot_hover",
-#              brush = "plot_brush"
-#   ),
-#   verbatimTextOutput("info")
-# )

@@ -1,6 +1,7 @@
 R modeling to prepare code for R shiny app exploring monster encounter information with pathfinder 2e 
 ```{r}
 library(tidyverse)
+library(plotly)
 ```
 
 ```{r}
@@ -39,11 +40,14 @@ class_choice = all_class_options[4]
 class_select_sim <- sim_results |> filter(class_build == class_choice)
 
 #visualize the total_dmg output for each class split by ancestry 
-class_select_sim |> ggplot(aes(x=target_ac, y=total_dmg, color=ancestry)) +  
+plot_test <- class_select_sim |> ggplot(aes(x=target_ac, y=total_dmg, color=ancestry)) +  
   geom_smooth(aes(group=ancestry), method='lm', se=TRUE) +
   labs(title=glue('{class_choice} damage output by level and target ac'), 
        x='target ac', 
        y= 'total damage over 5 round')
+
+ggplotly(plot_test
+)
 
 ```
 
@@ -65,10 +69,14 @@ Visualize the distribution of total damage needed for specific hitpoint levels
 ```{r}
 #filter so monster data only goes to the max AC level of simulation dataset 
 max_target_ac <- sim_results |> distinct(target_ac) |> max()
-  
+
 monster_data_maxac <- monster_data |> filter(AC <= max_target_ac)
 
 monster_data_maxac|> head()
+```
+```{r}
+monster_data_maxac |> filter(AC == 12, HP == 20)
+
 ```
 
 
@@ -89,10 +97,10 @@ Create a visual that includes the monster HP information with simulation data
 class_select_sim |> ggplot(aes(x=target_ac, y=total_dmg)) +  
   geom_smooth(aes(group=ancestry, color=ancestry), method='lm', se=TRUE) +
   geom_point(data = monster_data_maxac, aes(x=AC, y=HP, shape=Level, size= Level, alpha=0.4)) + scale_shape_binned() +
-    labs(title=glue('{class_choice} damage output by level and target ac'), 
+  labs(title=glue('{class_choice} damage output by level and target ac'), 
        x='target ac', 
        y= 'total damage over 5 rounds')
-       
+
 ```
 
 Categorize monsters by whether they are BELOW class "moderate" curve or above 
@@ -106,4 +114,169 @@ Clean up monster spreadsheet
 monster_data_maxac <- monster_data_maxac |> select(-X)
 monster_data_maxac |> head()
 ```
+
+
+##############################
+Combining the output damage of 4 selected party member combinations 
+* below minimum -> trivial
+* below 25th percentile -> easy
+* 25th to 75th -> moderate
+* 75th to max -> hard
+* max and above -> impossible 
+
+```{r}
+### select party combinations 
+
+anc_select_party = c('dwarf', 'ocr-str', 'halfling', 'elf')
+class_select_party= c('barbarian', 'fighter', 'rogue','sorcerer')
+
+## create a combination based on the location 
+
+build_select_party = str_c(anc_select_party, class_select_party, sep = " ")
+#print(build_select_party)
+
+## Or create the list from a full build_name variable 
+
+full_build_select_party =c("dwarf barbarian strength", "human-str fighter strength", "halfling rogue dexterity", "elf sorcerer charisma")
+
+
+
+#####filter out these builds from  from the simulation data 
+
+only_party_sim <- sim_results |> filter(build_name %in% full_build_select_party)
+
+#for each target_ac, add up all the damage from EACH encounter across the whole party 
+## groupby by encounter number, than sum all the 'total damage'
+
+party_combo_sim <- only_party_sim |> group_by(target_ac, encounter_num) |> summarize(total_party_damage= sum(total_dmg))
+
+## Create summary dataframe based on summary statistics
+total_dmg_dist <- party_combo_sim |> 
+  group_by(target_ac) |> 
+  summarize(min_val = min(total_party_damage), 
+            max_val = max(total_party_damage), 
+            q25= quantile(total_party_damage, 0.25), 
+            median= median(total_party_damage), 
+            q75= quantile(total_party_damage, 0.75))
+
+### Create monster challenge rating based on where the HP falls on the total_damage distribution 
+#rename monster column for easier merging 
+monster_data_merge <- monster_data_maxac |> 
+  rename(target_ac = AC)
+
+#merge the summary stats with monster info based on AC
+mon_with_party_stat <- left_join(monster_data_merge, 
+                                 total_dmg_dist, 
+                                 by = "target_ac")
+
+#create a challenge rating using case_when based on the summary statistics 
+mon_party_challenge <- mon_with_party_stat |> 
+  mutate(challenge_rate = case_when (HP<q25 ~ 'easy', 
+                                     HP >=q25 & HP <= q75 ~ 'moderate',
+                                     HP > q75 & HP <= (2*max_val)~ 'hard', 
+                                     HP >= (2*max_val) ~'impossible')
+  )
+
+#convert challenge rating to a factor value 
+mon_party_challenge <- mon_party_challenge|> 
+  mutate (challenge_rate= as.factor(challenge_rate))
+
+#create a color scale for the graphing 
+color_dict= c('easy'='green', 'moderate'='blue', 'hard'='red', 'impossible'='orange')
+
+## Graph where total_damage and target_ac is on y and x axis, and shows total distribtuion across all encounters
+
+party_combo_sim |> ggplot(aes(x=target_ac, y=total_party_damage))  + 
+  geom_point(alpha = 1/10) + 
+  geom_smooth(method='lm', se=TRUE) + #add geom_ribbon() for predictive ranges 
+  #apply monster information to the plot -> ADD that the color is equal to the CHALLENGE RATING, and that the shape is equal to the level
+  geom_point(data=mon_party_challenge, 
+             aes(x=target_ac, 
+                 y=HP, 
+                 size= 2,
+                 shape= Level, 
+                 color= challenge_rate, 
+                 alpha = 0.5)) + 
+  scale_shape_binned() + 
+  scale_color_manual(values = color_dict) +
+  theme_minimal()
+
+```
+
+
+```{r}
+total_dmg_dist <- party_combo_sim |> 
+  group_by(target_ac) |> 
+  summarize(min_val = min(total_party_damage), 
+            max_val = max(total_party_damage), 
+            q25= quantile(total_party_damage, 0.25), 
+            median= median(total_party_damage), 
+            q75= quantile(total_party_damage, 0.75))
+
+#use a case_when function to classify the challenge rating based on where it falls on the total_dmg_dist
+
+#rename monster column for easier merging 
+monster_data_merge <- monster_data_maxac |> 
+  rename(target_ac = AC)
+
+#merge the summary stats with monster info based on AC
+mon_with_party_stat <- left_join(monster_data_merge, 
+                                 total_dmg_dist, 
+                                 by = "target_ac")
+
+#create a challenge rating using case_when based on the summary statistics 
+mon_party_challenge <- mon_with_party_stat |> 
+  mutate(challenge_rate = case_when (HP<q25 ~ 'easy', 
+                                     HP >=q25 & HP <= q75 ~ 'moderate',
+                                     HP > q75 & HP <= (2*max_val)~ 'hard', 
+                                     HP >= (2*max_val) ~'impossible')
+  )
+
+#convert challenge rating to a factor value 
+mon_party_challenge <- mon_party_challenge|> 
+  mutate (challenge_rate= as.factor(challenge_rate))
+
+
+```
+
+```{r}
+
+
+#use a case_when function to classify the challenge rating based on where it falls on the total_dmg_dist
+
+# monster_data_maxac |> mutate(challenge_rate = case_when (AC ==total_dmg_dist$target_ac & HP <)
+monster_data_merge <- monster_data_maxac |> rename(target_ac = AC)
+monster_data_merge
+
+#merge the summary stats with monster info based on AC
+mon_with_party_stat <- left_join(monster_data_merge, total_dmg_dist, by = "target_ac")
+
+#create a case_when based on the summary statistics 
+mon_party_challenge <- mon_with_party_stat |> 
+  mutate(challenge_rate = case_when (HP<q25 ~ 'easy', 
+                                     HP >=q25 & HP <= q75 ~ 'moderate',
+                                     HP > q75 & HP <= (2*max_val)~ 'hard', 
+                                     HP >= (2*max_val) ~'impossible')
+  )
+
+#convert challenge rating to a factor value 
+mon_party_challenge <- mon_party_challenge|> 
+  mutate (challenge_rate= as.factor(challenge_rate))
+
+
+```
+
+```{r}
+party_combo_sim |> ggplot( aes(x=target_ac, y=total_party_damage))  + 
+  geom_point(alpha = 1/10) + 
+  geom_smooth(method='lm', se=TRUE) +
+  geom_quantile(quantiles=c(0.25, 0.75), color="gray") #add geom_ribbon() for predictive ranges 
+  #apply monster information to the plot -> ADD that the color is equal to the CHALLENGE RATING, and that the shape is equal to the level
+```
+
+
+```{r}
+total_dmg_dist
+```
+
 
