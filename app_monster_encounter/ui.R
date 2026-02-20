@@ -1,7 +1,19 @@
 ### The layout plan of the shinny app:
-#TAB OPTIONS: character build, monster encounter (single), monster encounter (multiple)
 
-#####monster encounter (single):
+### TAB: 4-party monster challenge
+## sidepanel: drop-down options for selecting character build 
+## main panel: interactive plot with projected total party damage with monster stats + challenge rating 
+## main panel: datatable with monster informaiton and stats based on filter on the figure 
+
+### TAB: single character build monster challenge 
+## Same figure as whole party tab, but only one character build projected total damage, and new calculation of monster challenge rating 
+## table updated with new rating 
+
+### TAB: character build exploration 
+## Visuals from the 3 read-outs for each character build: rate of sucess (1 and 2), rate of critical attack, and total damage output
+## these 4 figures update based on the selected character build 
+## OR the 4 figures change based on the class chosen, and demonstrates the distribution by ancestry for that build 
+
 
 #### Single tab with interactive plots
 
@@ -24,7 +36,8 @@ fluidPage(
                  choices = c(sim_results |>
                                distinct(build_name) |>
                                pull() |>
-                               sort())
+                               sort()), 
+                 selected = "dwarf barbarian strength"
                )) #, #column 1,
         # column(6,  
         #        selectInput(
@@ -48,7 +61,8 @@ fluidPage(
                  choices = c(sim_results |>
                                distinct(build_name) |>
                                pull() |>
-                               sort())
+                               sort()), 
+                 selected = "human-str fighter strength"
                )) #, #column 1,
         # column(6,  
         #        selectInput(
@@ -72,7 +86,8 @@ fluidPage(
                  choices = c(sim_results |>
                                distinct(build_name) |>
                                pull() |>
-                               sort())
+                               sort()), 
+                 selected = "halfling rogue dexterity"
                )) #, #column 1,
         # column(6,  
         #        selectInput(
@@ -96,7 +111,8 @@ fluidPage(
                  choices = c(sim_results |>
                                distinct(build_name) |>
                                pull() |>
-                               sort())
+                               sort()), 
+                 selected = "elf sorcerer charisma"
                )) #, #column 1,
         # column(6,  
         #        selectInput(
@@ -110,14 +126,14 @@ fluidPage(
                #)) #column 2
       ), #char4 row
       
-      ## slide panel based on CHARACTER level
-      sliderInput(
-        "chlevel_variable",
-        "Party level:",
-        min = 1,
-        max = 5,
-        value = 1
-      ), #close slider widget
+      # ## slide panel based on CHARACTER level
+      # sliderInput(
+      #   "chlevel_variable",
+      #   "Party level:",
+      #   min = 1,
+      #   max = 5,
+      #   value = 1
+      # ), #close slider widget
     ), #close side bar panel
     #### [ CLOSE SIDE PANEL]#####
     

@@ -145,62 +145,116 @@ full_build_select_party =c("dwarf barbarian strength", "human-str fighter streng
 
 only_party_sim <- sim_results |> filter(build_name %in% full_build_select_party)
 
+#Filter out the simulation dataset for each class individually 
+class1_plot <- sim_results |>
+  #Filter based on the class choice
+  filter(build_name == full_build_select_party[1])
+class2_plot <- sim_results |>
+  #Filter based on the class choice
+  filter(build_name== full_build_select_party[2])
+class3_plot <- sim_results |>
+  #Filter based on the class choice
+  filter(build_name == full_build_select_party[3])
+class4_plot <- sim_results |>
+  #Filter based on the class choice
+  filter(build_name == full_build_select_party[4])
+
 #for each target_ac, add up all the damage from EACH encounter across the whole party 
 ## groupby by encounter number, than sum all the 'total damage'
 
-party_combo_sim <- only_party_sim |> group_by(target_ac, encounter_num) |> summarize(total_party_damage= sum(total_dmg))
+party_combo_sim <- only_party_sim |> group_by(target_ac, encounter_num) |> summarise(total_party_damage= sum(total_dmg))
+print(party_combo_sim |> head(3))
 
 ## Create summary dataframe based on summary statistics
-total_dmg_dist <- party_combo_sim |> 
-  group_by(target_ac) |> 
-  summarize(min_val = min(total_party_damage), 
-            max_val = max(total_party_damage), 
-            q25= quantile(total_party_damage, 0.25), 
-            median= median(total_party_damage), 
+total_dmg_dist <- party_combo_sim |>
+  group_by(target_ac) |>
+  summarise(min_val = min(total_party_damage),
+            max_val = max(total_party_damage),
+            q25= quantile(total_party_damage, 0.25),
+            median= median(total_party_damage),
             q75= quantile(total_party_damage, 0.75))
 
-### Create monster challenge rating based on where the HP falls on the total_damage distribution 
-#rename monster column for easier merging 
-monster_data_merge <- monster_data_maxac |> 
+### Create monster challenge rating based on where the HP falls on the total_damage distribution
+#rename monster column for easier merging
+monster_data_merge <- monster_data_maxac |>
   rename(target_ac = AC)
 
 #merge the summary stats with monster info based on AC
-mon_with_party_stat <- left_join(monster_data_merge, 
-                                 total_dmg_dist, 
+mon_with_party_stat <- left_join(monster_data_merge,
+                                 total_dmg_dist,
                                  by = "target_ac")
 
-#create a challenge rating using case_when based on the summary statistics 
-mon_party_challenge <- mon_with_party_stat |> 
-  mutate(challenge_rate = case_when (HP<q25 ~ 'easy', 
+#create a challenge rating using case_when based on the summary statistics
+mon_party_challenge <- mon_with_party_stat |>
+  mutate(challenge_rate = case_when (HP<q25 ~ 'easy',
                                      HP >=q25 & HP <= q75 ~ 'moderate',
-                                     HP > q75 & HP <= (2*max_val)~ 'hard', 
+                                     HP > q75 & HP <= (2*max_val)~ 'hard',
                                      HP >= (2*max_val) ~'impossible')
   )
 
-#convert challenge rating to a factor value 
-mon_party_challenge <- mon_party_challenge|> 
+#convert challenge rating to a factor value
+mon_party_challenge <- mon_party_challenge|>
   mutate (challenge_rate= as.factor(challenge_rate))
 
-#create a color scale for the graphing 
+#create a color scale for the graphing
 color_dict= c('easy'='green', 'moderate'='blue', 'hard'='red', 'impossible'='orange')
+title <- glue("Monster challenge rating based on 4-party total damage output over 5 rounds")
 
 ## Graph where total_damage and target_ac is on y and x axis, and shows total distribtuion across all encounters
 
-party_combo_sim |> ggplot(aes(x=target_ac, y=total_party_damage))  + 
-  geom_point(alpha = 1/10) + 
-  geom_smooth(method='lm', se=TRUE) + #add geom_ribbon() for predictive ranges 
+party_combo_sim |> ggplot(aes(x=target_ac, y=total_party_damage))  +
+  geom_point(alpha = 1/10) +
+  geom_smooth(method='lm', se=TRUE) + #add geom_ribbon() for predictive ranges
   #apply monster information to the plot -> ADD that the color is equal to the CHALLENGE RATING, and that the shape is equal to the level
-  geom_point(data=mon_party_challenge, 
-             aes(x=target_ac, 
-                 y=HP, 
-                 size= 2,
-                 shape= Level, 
-                 color= challenge_rate, 
-                 alpha = 0.5)) + 
-  scale_shape_binned() + 
+  
+  
+   geom_point(data=mon_party_challenge,
+                 aes(label= Name, 
+                     x=target_ac,
+                     y=HP,
+                     shape= 13,
+                     size= Level,
+                     color= challenge_rate)) +
+      scale_shape_binned() + 
+  
   scale_color_manual(values = color_dict) +
-  theme_minimal()
+  labs(title= title,
+       x='target ac',
+       y= 'target hit points') + 
+  geom_smooth(data = class1_plot, aes(x=target_ac, y=total_dmg), 
+              method='lm',
+              se=TRUE) 
 
+  #add in a lineplot for each class individually
+  # #class 1
+  # geom_smooth(data = class1_plot,
+  #             method='lm',
+  #             se=TRUE) +
+  # # #class 2
+  # geom_smooth(data = class2_plot,
+  #             method='lm',
+  #             se=TRUE) +
+  # # #class 3
+  # geom_smooth(data = class3_plot,
+  #             method='lm',
+  #             se=TRUE) +
+  # # #class 4
+  # geom_smooth(data = class4_plot,
+  #             method='lm',
+  #             se=TRUE) +
+
+
+
+```
+
+```{r}
+class1_plot |> head()
+
+mon_party_challenge |> head()
+```
+
+```{r}
+party_combo_sim |> ggplot(aes(target_ac, total_party_damage)) + geom_point()
 ```
 
 
@@ -271,7 +325,7 @@ party_combo_sim |> ggplot( aes(x=target_ac, y=total_party_damage))  +
   geom_point(alpha = 1/10) + 
   geom_smooth(method='lm', se=TRUE) +
   geom_quantile(quantiles=c(0.25, 0.75), color="gray") #add geom_ribbon() for predictive ranges 
-  #apply monster information to the plot -> ADD that the color is equal to the CHALLENGE RATING, and that the shape is equal to the level
+#apply monster information to the plot -> ADD that the color is equal to the CHALLENGE RATING, and that the shape is equal to the level
 ```
 
 
@@ -279,4 +333,13 @@ party_combo_sim |> ggplot( aes(x=target_ac, y=total_party_damage))  +
 total_dmg_dist
 ```
 
+
+```{r}
+monster_challenge <- mon_party_challenge |> relocate(challenge_rate) |> rename("challenge rating"= challenge_rate) 
+
+
+monster_challenge|> select(-c(min_val, max_val, q25, median, q75)) |> rename("AC" = target_ac)
+                           
+
+```
 
